@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "displayName": "curlconverter",
   "description": "VS Code extension to convert curl commands to Python, JS and other languages",
+  "publisher": "curlconverter",
   "icon": "icon.png",
   "homepage": "https://github.com/curlconverter/curlconverter",
   "author": {
