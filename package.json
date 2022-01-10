@@ -1,8 +1,19 @@
 {
   "name": "curlconverter",
-  "displayName": "curlconverter",
-  "description": "convert curl commands to programs",
   "version": "0.0.1",
+  "displayName": "curlconverter",
+  "description": "VS Code extension to convert curl commands to Python, JS and other languages",
+  "icon": "icon.png",
+  "homepage": "https://github.com/curlconverter/curlconverter",
+  "author": {
+    "name": "Boris Verkhovskiy",
+    "email": "boris.verk@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curlconverter/vs-code"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.63.0"
   },

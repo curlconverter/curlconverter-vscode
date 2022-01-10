@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as curlconverter from 'curlconverter';
 
-const languages = {
+const languages: any = {
 	'go': curlconverter.toGo,
 	'java': curlconverter.toJava,
 	'javascript': curlconverter.toBrowser,
@@ -35,13 +35,13 @@ export function activate(context: vscode.ExtensionContext) {
 		if (!editor) {
 			return vscode.window.showErrorMessage('No active editor');
 		}
-		
+
 		const converter = languages[editor.document.languageId];
 		if (!converter) {
 			return vscode.window.showErrorMessage('Unsupported language: ' + editor.document.languageId);
 		}
 
-		// Remove leading whitespace and '$' 
+		// Remove leading whitespace and '$'
 		const clipboardText = (await vscode.env.clipboard.readText()).replace(/^\s*\$?\s*/, '');
 		// TODO: something more complicated like making sure there's stuff after the 'curl'
 		// with helpful error messages.
