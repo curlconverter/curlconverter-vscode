@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as curlconverter from 'curlconverter';
 
-const languages: any = {
+const languages: {[key: string]: (s: string) => string} = {
 	'go': curlconverter.toGo,
 	'java': curlconverter.toJava,
 	'javascript': curlconverter.toBrowser,
@@ -30,15 +30,12 @@ vscode.commands.executeCommand('setContext', 'curlconverter.supportedLanguages',
 
 export function activate(context: vscode.ExtensionContext) {
 
-	let disposable = vscode.commands.registerCommand('curlconverter.fromClipboard', async () => {
-		const editor = vscode.window.activeTextEditor;
-		if (!editor) {
-			return vscode.window.showErrorMessage('No active editor');
-		}
+	const fromClipboard = async (editor: vscode.TextEditor, edit: vscode.TextEditorEdit, converter?: (s: string) => string): Promise<void | string | undefined> => {
+		const languageId = editor.document.languageId;
 
-		const converter = languages[editor.document.languageId];
+		converter = converter ?? languages[languageId];
 		if (!converter) {
-			return vscode.window.showErrorMessage('Unsupported language: ' + editor.document.languageId);
+			return vscode.window.showErrorMessage('Unsupported language: ' + languageId);
 		}
 
 		// Remove leading whitespace and '$'
@@ -66,8 +63,23 @@ export function activate(context: vscode.ExtensionContext) {
 		editor.edit(editBuilder => {
 			editBuilder.insert(editor.selection.active, result);
 		});
+	};
+
+	let disposable = vscode.commands.registerTextEditorCommand('curlconverter.fromClipboard', async (editor, edit) => { 
+		return fromClipboard(editor, edit); 
 	});
 	context.subscriptions.push(disposable);
+
+	for (const fn of [... new Set(Object.values(languages))]) {
+		let langCommand = vscode.commands.registerTextEditorCommand('curlconverter.' + fn.name, async (editor, edit) => { 
+			return fromClipboard(editor, edit, fn); 
+		});
+		context.subscriptions.push(langCommand);
+		langCommand = vscode.commands.registerTextEditorCommand('curlconverter.' + fn.name + 'Short', async (editor, edit) => { 
+			return fromClipboard(editor, edit, fn); 
+		});
+		context.subscriptions.push(langCommand);
+	}
 }
 
 export function deactivate() {}

@@ -1,8 +1,8 @@
 {
   "name": "curlconverter",
   "displayName": "curlconverter",
-  "description": "Convert curl commands to Python, JavaScript, PHP, R, Go, Java or Rust.",
-  "version": "0.0.2",
+  "description": "Paste curl commands as Python, JavaScript, PHP, R, Go, Java or Rust.",
+  "version": "0.0.3",
   "publisher": "curlconverter",
   "icon": "icon.png",
   "homepage": "https://curlconverter.com/",
@@ -45,19 +45,350 @@
     "commands": [
       {
         "command": "curlconverter.fromClipboard",
-        "title": "Paste cURL as code"
+        "title": "Paste cURL As Code",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toGo",
+        "title": 	"Paste cURL As Go",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toJava",
+        "title": "Paste cURL As Java",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toBrowser",
+        "title": "Paste cURL As JavaScript",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toJsonString",
+        "title": "Paste cURL As JSON",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toPhp",
+        "title": "Paste cURL As PHP",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toPython",
+        "title": "Paste cURL As Python",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toR",
+        "title": "Paste cURL As R",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toRust",
+        "title": "Paste cURL As Rust",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toDart",
+        "title": "Paste cURL As Dart",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toElixir",
+        "title": "Paste cURL As Elixir",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toMATLAB",
+        "title": "Paste cURL As MATLAB",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toGoShort",
+        "title": 	"Go",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toJavaShort",
+        "title": "Java",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toBrowserShort",
+        "title": "JavaScript",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toJsonStringShort",
+        "title": "JSON",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toPhpShort",
+        "title": "PHP",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toPythonShort",
+        "title": "Python",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toRShort",
+        "title": "R",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toRustShort",
+        "title": "Rust",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toDartShort",
+        "title": "Dart",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toElixirShort",
+        "title": "Elixir",
+        "category": "curlconverter"
+      },
+      {
+        "command": "curlconverter.toMATLABShort",
+        "title": "MATLAB",
+        "category": "curlconverter"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "curlconverter.fromClipboard",
-          "title": "Paste cURL as code",
+          "command": "curlconverter.toDart",
+          "title": "Paste cURL As Dart",
           "group": "9_cutcopypaste@5",
-          "when": "editorLangId in curlconverter.supportedLanguages"
+          "when": "editorLangId == dart"
+        },
+        {
+          "command": "curlconverter.toElixir",
+          "title": "Paste cURL As Elixir",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == elixir"
+        },
+        {
+          "command": "curlconverter.toGo",
+          "title": "Paste cURL As Go",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == go"
+        },
+        {
+          "command": "curlconverter.toJava",
+          "title": "Paste cURL As Java",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == java"
+        },
+        {
+          "command": "curlconverter.toBrowser",
+          "title": "Paste cURL As JavaScript",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == javascript"
+        },
+        {
+          "command": "curlconverter.toBrowser",
+          "title": "Paste cURL As JavaScript",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == typescript"
+        },
+        {
+          "command": "curlconverter.toBrowser",
+          "title": "Paste cURL As JavaScript",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == javascriptreact"
+        },
+        {
+          "command": "curlconverter.toBrowser",
+          "title": "Paste cURL As JavaScript",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == typescriptreact"
+        },
+        {
+          "command": "curlconverter.toJsonString",
+          "title": "Paste cURL As JSON",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == json"
+        },
+        {
+          "command": "curlconverter.toJsonString",
+          "title": "Paste cURL As JSON",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == jsonc"
+        },
+        {
+          "command": "curlconverter.toMATLAB",
+          "title": "Paste cURL As MATLAB",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == matlab"
+        },
+        {
+          "command": "curlconverter.toPhp",
+          "title": "Paste cURL As PHP",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == php"
+        },
+        {
+          "command": "curlconverter.toPython",
+          "title": "Paste cURL As Python",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == python"
+        },
+        {
+          "command": "curlconverter.toR",
+          "title": "Paste cURL As R",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == r"
+        },
+        {
+          "command": "curlconverter.toRust",
+          "title": "Paste cURL As Rust",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == rust"
+        },
+        {
+          "submenu": "curlconverter.pasteAs",
+          "group": "9_cutcopypaste@5",
+          "when": "editorLangId == plaintext"
+        }
+      ],
+      "curlconverter.pasteAs": [
+        {
+          "command": "curlconverter.toDartShort"
+        },
+        {
+          "command": "curlconverter.toElixirShort"
+        },
+        {
+          "command": "curlconverter.toGoShort"
+        },
+        {
+          "command": "curlconverter.toJavaShort"
+        },
+        {
+          "command": "curlconverter.toBrowserShort"
+        },
+        {
+          "command": "curlconverter.toJsonStringShort"
+        },
+        {
+          "command": "curlconverter.toMATLABShort"
+        },
+        {
+          "command": "curlconverter.toPhpShort"
+        },
+        {
+          "command": "curlconverter.toPythonShort"
+        },
+        {
+          "command": "curlconverter.toRShort"
+        },
+        {
+          "command": "curlconverter.toRustShort"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "curlconverter.toGo",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toJava",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toBrowser",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toJsonString",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toPhp",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toPython",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toR",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toRust",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toDart",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toElixir",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toMATLAB",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toGoShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toJavaShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toBrowserShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toJsonStringShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toPhpShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toPythonShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toRShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toRustShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toDartShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toElixirShort",
+          "when": "false"
+        },
+        {
+          "command": "curlconverter.toMATLABShort",
+          "when": "false"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "curlconverter.pasteAs",
+        "label": "Paste cURL As"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
